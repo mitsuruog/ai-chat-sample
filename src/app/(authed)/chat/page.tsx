@@ -8,7 +8,7 @@ import ChatMessage from "@/features/chat/chat_message";
 import ModelSwitcher from "@/features/chat/model_switcher";
 import NewMessage from "@/features/chat/new_message";
 
-export default function Home() {
+export default function ChatPage() {
   const [model, setModel] = useState<Key>("gpt-3.5-turbo");
   const [streaming, setStreaming] = useState<boolean>(false);
 
@@ -35,7 +35,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-grow flex-col container mx-auto p-8">
+    <main className="flex flex-grow flex-col gap-8 container mx-auto p-8">
       <div className="flex justify-end">
         <ModelSwitcher
           selectedKey={model}

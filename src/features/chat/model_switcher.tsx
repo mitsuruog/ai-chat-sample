@@ -34,7 +34,7 @@ const ModelSwitcher = ({
         </Button>
       </div>
       <Popover>
-        <ListBox className="border rounded shadow">
+        <ListBox className="border rounded shadow bg-white">
           {openai_models.map((model) => (
             <ListBoxItem
               key={model}
