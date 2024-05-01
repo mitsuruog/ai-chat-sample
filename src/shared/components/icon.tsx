@@ -1,13 +1,17 @@
 "use client";
 
 export * from "@fortawesome/free-regular-svg-icons";
-import { faSpinner, faStop } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSpinner,
+  faStop,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
 
-export { faSpinner, faStop };
+export { faSpinner, faStop, faChevronDown };
 
 export type IconProps = FontAwesomeIconProps;
 

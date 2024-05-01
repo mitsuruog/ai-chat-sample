@@ -50,7 +50,12 @@ export default function CompletionPage() {
           streaming={streaming}
         />
         <div className="self-end">
-          <Button type="submit">Generate</Button>
+          <Button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Generate
+          </Button>
         </div>
       </form>
       <div className="flex flex-col flex-1 gap-2">

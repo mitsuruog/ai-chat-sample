@@ -11,7 +11,7 @@ import {
   Key,
 } from "react-aria-components";
 
-import Icon, { faCaretSquareDown } from "@/shared/components/icon";
+import Icon, { faChevronDown } from "@/shared/components/icon";
 
 const openai_models = ["gpt-4-turbo", "gpt-4", "gpt-3.5-turbo"];
 
@@ -30,7 +30,7 @@ const ModelSwitcher = ({
         <Label>Model</Label>
         <Button className="flex gap-2 items-center border rounded px-2 py-1">
           <SelectValue />
-          <Icon icon={faCaretSquareDown} className="h-6 x-6" />
+          <Icon icon={faChevronDown} className="h-4 x-4" />
         </Button>
       </div>
       <Popover>
