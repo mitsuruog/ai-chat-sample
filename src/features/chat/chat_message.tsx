@@ -2,11 +2,11 @@
 
 import { Message } from "ai";
 import clsx from "clsx";
+import { FaCommentDots, FaUser } from "react-icons/fa6";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
 import CodeBlock from "@/shared/components/code-block";
-import Icon, { faUser, faCommentDots } from "@/shared/components/icon";
 import Markdown from "@/shared/components/markdown";
 
 export type ChatMessageProps = {
@@ -15,6 +15,11 @@ export type ChatMessageProps = {
 
 const ChatMessage = ({ message }: ChatMessageProps) => {
   const { role } = message;
+
+  const content =
+    message.role === "data"
+      ? JSON.stringify(message.data, null, 2)
+      : message.content;
 
   return (
     <div className="flex gap-4 border-b p-4">
@@ -27,7 +32,7 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
             }
           )}
         >
-          <Icon icon={role === "user" ? faUser : faCommentDots} />
+          {role === "user" ? <FaUser /> : <FaCommentDots />}
         </div>
       </div>
       <Markdown
@@ -60,7 +65,7 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
           },
         }}
       >
-        {message.content}
+        {content}
       </Markdown>
     </div>
   );

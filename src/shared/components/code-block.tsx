@@ -1,11 +1,10 @@
 "use client";
 
+import { FaCheck, FaClipboard } from "react-icons/fa6";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 import { useCopyToClipboard } from "@/shared/hooks/use-copy-to-clipboard";
-
-import Icon, { faCheckCircle, faClipboard } from "./icon";
 
 type languageMap = {
   [key: string]: string | undefined;
@@ -54,12 +53,12 @@ const CodeBlock = ({ language, value }: CodeBlockProps) => {
   };
 
   return (
-    <div className="flex flex-col bg-zinc-950 rounded my-2">
+    <div className="flex flex-col bg-zinc-950 rounded my-2 w-[50rem]">
       <div className="flex items-center justify-between px-4 py-2 bg-zinc-800 text-zinc-100 rounded-t">
         <span className="text-xs lowercase">{language}</span>
         <div>
           <button onClick={onCopy}>
-            <Icon icon={isCopied ? faCheckCircle : faClipboard} />
+            {isCopied ? <FaCheck /> : <FaClipboard />}
           </button>
         </div>
       </div>

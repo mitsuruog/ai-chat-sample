@@ -4,14 +4,12 @@ import {
   Select,
   Label,
   Button,
+  SelectValue,
   Popover,
   ListBox,
   ListBoxItem,
-  SelectValue,
   Key,
 } from "react-aria-components";
-
-import Icon, { faChevronDown } from "@/shared/components/icon";
 
 const openai_models = ["gpt-4-turbo", "gpt-4", "gpt-3.5-turbo"];
 
@@ -25,26 +23,26 @@ const ModelSwitcher = ({
   onSelectionChange,
 }: ModelSwitcherProps) => {
   return (
-    <Select selectedKey={selectedKey} onSelectionChange={onSelectionChange}>
-      <div className="flex gap-2 items-center">
-        <Label>Model</Label>
-        <Button className="flex gap-2 items-center border rounded px-2 py-1">
-          <SelectValue />
-          <Icon icon={faChevronDown} className="h-4 x-4" />
-        </Button>
-      </div>
+    <Select
+      className="flex gap-4 items-center w-64"
+      selectedKey={selectedKey}
+      onSelectionChange={onSelectionChange}
+    >
+      <Label>Model</Label>
+      <Button className="flex flex-grow">
+        <SelectValue className="form-select flex-grow text-left" />
+      </Button>
       <Popover>
         <ListBox className="border rounded shadow bg-white">
           {openai_models.map((model) => (
             <ListBoxItem
               key={model}
               id={model}
-              className="px-4 py-2 hover:bg-gray-100"
+              className="py-2 px-4 hover:bg-gray-100"
             >
               {model}
             </ListBoxItem>
           ))}
-          <ListBoxItem></ListBoxItem>
         </ListBox>
       </Popover>
     </Select>

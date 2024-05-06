@@ -1,9 +1,8 @@
 "use client";
 
 import clsx from "clsx";
-import { Button } from "react-aria-components";
-
-import Icon, { faSpinner, faStop } from "@/shared/components/icon";
+import { Button, Input, Label, TextField } from "react-aria-components";
+import { FaStop, FaSpinner } from "react-icons/fa6";
 
 export type NewMessageProps = {
   stop: () => void;
@@ -19,29 +18,26 @@ const NewMessage = ({
   streaming,
 }: NewMessageProps) => {
   return (
-    <div className="flex items-center w-full relative">
-      <input
-        type="text"
+    <TextField className="flex items-center gap-4 w-full relative">
+      <Label>Message</Label>
+      <Input
         value={input}
         onChange={handleInputChange}
         disabled={streaming}
         placeholder={streaming ? "Generating Answer..." : "Ask a question..."}
-        className={clsx(
-          "w-full  border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
-          {
-            "pr-20": streaming,
-          }
-        )}
+        className={clsx("form-input w-full", {
+          "pr-16": streaming,
+        })}
       />
       {streaming && (
         <div className="absolute inset-y-0 right-4 flex items-center gap-2">
-          <Button className="flex items-center" onPress={stop}>
-            <Icon icon={faStop} className="h-6 w-6" />
+          <Button onPress={stop}>
+            <FaStop />
           </Button>
-          <Icon icon={faSpinner} spin className="h-6 w-6" />
+          <FaSpinner className="animate-spin" />
         </div>
       )}
-    </div>
+    </TextField>
   );
 };
 
